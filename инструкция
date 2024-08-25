@@ -1,0 +1,35 @@
+Не забудь удалить старые докер данные:
+docker rm -f $(docker ps -q)
+
+
+
+Запускататься все будет как в старые добрые через docker-compose up -d
+
+Но есть некоторые моменты:
+
+1) если первый запуск - то ебашь docker-compose up -d --build
+
+2) обязательный этап:
+    Пропиши:
+       a) docker exec -it php bash
+       b) composer install
+       c) exit
+
+3) Наслаждайся проектом!
+
+Код надо будет писать в app/src
+index.php - точка входа в приложуху
+/
+http://localhost:80 - твой проект
+http://localhost:8000 - phpmyadmin
+
+Конфиг для бд подключения:
+host = localhost
+port = 3306
+user = root
+password = root
+
+Данные для phpmyadmin
+host=db
+password=root
+user=root
